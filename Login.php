@@ -4,11 +4,11 @@
 
     $userID = $_POST["userID"];
     $userPassword = $_POST["userPassword"];
-
     
     $statement = mysqli_prepare($con, "SELECT * FROM member WHERE userID = ? AND userPassword = ?");
     mysqli_stmt_bind_param($statement, "ss", $userID, $userPassword);
     mysqli_stmt_execute($statement);
+
 
     mysqli_stmt_store_result($statement);
     mysqli_stmt_bind_result($statement, $userID, $userPassword, $userName, $userBirth, $userNum, $userEmail);
@@ -24,9 +24,8 @@
         $response["userBirth"] = $userBirth;        
         $response["userNum"] = $userNum;
         $response["userEmail"] = $userEmail;
+        //$response["cardNum"] = $cardNum;
     }
 
     echo json_encode($response);
-
-
 ?>
