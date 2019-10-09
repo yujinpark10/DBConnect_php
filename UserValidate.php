@@ -4,9 +4,10 @@
 
     $userID = $_POST["userID"];
 
-    $statement = mysqli_prepare($con, "SELECT FROM member WHERE userID = ?");
+    $statement = mysqli_prepare($con, "SELECT userID FROM member WHERE userID = ?");
     mysqli_stmt_bind_param($statement, "s", $userID);
     mysqli_stmt_execute($statement);
+
     mysqli_stmt_store_result($statement);
     mysqli_stmt_bind_result($statement, $userID);
 
