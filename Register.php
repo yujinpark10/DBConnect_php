@@ -8,18 +8,14 @@
     $userBirth = $_POST["userBirth"];
     $userNum = $_POST["userNum"];
     $userEmail = $_POST["userEmail"];
+    //$cardNum = $_POST["cardNum"];
 
+    //$statement = mysqli_prepare($con, "INSERT INTO member VALUES ({$userID},{$userPassword},{$userName},{$userBirth},{$userNum},{$userEmail})");
     $statement = mysqli_prepare($con, "INSERT INTO member VALUES (?,?,?,?,?,?)");
-    mysqli_stmt_bind_param($statement, "sssi", $userID, $userPassword, $userName, $userBirth, $userNum, $userEmail);
+    mysqli_stmt_bind_param($statement, "ssssss", $userID, $userPassword, $userName, $userBirth, $userNum, $userEmail);
     mysqli_stmt_execute($statement);
-
-
     $response = array();
     $response["success"] = true;
  
-   
     echo json_encode($response);
-
-
-
 ?>
