@@ -2,7 +2,8 @@
     $con = mysqli_connect("localhost", "yujinpark10", "qkr147147!!", "yujinpark10");
     //mysqli_query($con,'SET NAMES utf8');
     //$result = mysqli_query($con, "SELECT * FROM card");
-    $result = mysqli_query($con,"SELECT * FROM card, member WHERE member.userID = card.userID AND card.mine = 0");
+    // $result = mysqli_query($con,"SELECT * FROM card, member WHERE member.userID = card.userID");
+    $result = mysqli_query($con, "SELECT * FROM card, member WHERE member.userID = card.userID AND card.mine = 1");
     //$result = mysqli_query($con, "SELECT * FROM card, member WHERE member.userID = card.userID AND card.mine = 0");
 
     $response = array(); // 배열선언
